@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Count Display</title>
+<style>
+    .user-box {
+        width: 200px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.2em;
+        cursor: pointer; /* Make the box clickable */
+    }
+    .user-list {
+        display: none; /* Hide user list by default */
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e0e0e0;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        text-align: left;
+        font-size: 1em;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<script>
+    // Function to fetch and display users on box click
+    function displayUsers() {
+        var userList = document.getElementById('user-list');
+
+        // Check if user list is already visible
+        if (userList.style.display === 'block') {
+            userList.style.display = 'none';
+        } else {
+            // Fetch user data from server using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Display fetched user data
+                        userList.innerHTML = xhr.responseText;
+                        userList.style.display = 'block'; // Show user list
+                    } else {
+                        alert('Error fetching user data: ' + xhr.status);
+                    }
+                }
+            };
+            xhr.open('GET', 'dashboard.php', true);
+            xhr.send();
+        }
+    }
+</script>
+</head>
+<body>
+
+<div class="user-box" onclick="displayUsers()">
+    Number of users in the database: <span id="user-count">
+        <!-- PHP will populate this span with the user count -->
+    </span>
+</div>
+
+<div id="user-list" class="user-list">
+    <!-- User list fetched dynamically via AJAX -->
+</div>
+
+</body>
+</html>
