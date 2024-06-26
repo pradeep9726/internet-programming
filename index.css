@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    /* Blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image:url('images/1.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position:center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.login-container {
+    background-color: #b1c8df; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+h2 {
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    color: #000000; /* Blue text */
+    font-weight:bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #333;
+}
+a {
+    color: #007bff; /* Blue color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    margin-left: 5px; /* Add some space between 'New? Register Here' and 'Sign Up' */
+}
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+    cursor:pointer;
+}
+
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #323232b4; /* Dark grey text */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2980b9; /* Darker blue button */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #1a65ac; /* Slightly darker on hover */
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
